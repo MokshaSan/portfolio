@@ -1,4 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const NAV = [
   { id: "home", label: "Home" },
@@ -57,10 +60,6 @@ const ROLES = [
   "Systems Thinker",
 ];
 
-<a href="https://github.com/..." target="_blank" rel="noopener noreferrer">
-  GitHub ↗
-</a>;
-
 const SOCIALS = [
   {
     name: "GitHub",
@@ -117,15 +116,17 @@ const SOCIALS = [
   },
 ];
 
-function useTypingEffect(words, speed = 75, pause = 2000) {
-  const [display, setDisplay] = useState("");
+function useTypingEffect(words: readonly string[], speed = 75, pause = 2000) {
   const [wordIdx, setWordIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const [deleting, setDeleting] = useState(false);
 
+  const display = words[wordIdx]?.slice(0, charIdx) ?? "";
+
   useEffect(() => {
+    if (words.length === 0) return;
     const word = words[wordIdx];
-    let timeout;
+    let timeout: ReturnType<typeof setTimeout> | undefined;
     if (!deleting && charIdx < word.length) {
       timeout = setTimeout(() => setCharIdx((c) => c + 1), speed);
     } else if (!deleting && charIdx === word.length) {
@@ -133,11 +134,14 @@ function useTypingEffect(words, speed = 75, pause = 2000) {
     } else if (deleting && charIdx > 0) {
       timeout = setTimeout(() => setCharIdx((c) => c - 1), speed / 2);
     } else if (deleting && charIdx === 0) {
-      setDeleting(false);
-      setWordIdx((i) => (i + 1) % words.length);
+      timeout = setTimeout(() => {
+        setDeleting(false);
+        setWordIdx((i) => (i + 1) % words.length);
+      }, speed);
     }
-    setDisplay(word.slice(0, charIdx));
-    return () => clearTimeout(timeout);
+    return () => {
+      if (timeout !== undefined) clearTimeout(timeout);
+    };
   }, [charIdx, deleting, wordIdx, words, speed, pause]);
 
   return display;
@@ -212,30 +216,32 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollTo = (id) => {
+  const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMobileMenuOpen(false);
   };
 
   return (
     <div
-      style={{
-        "--bg": "#070B14",
-        "--surface": "#0D1526",
-        "--surface2": "#131E35",
-        "--border": "#1E2D4A",
-        "--fg": "#E8EDF5",
-        "--muted": "#5A7099",
-        "--muted2": "#8BA0C0",
-        "--accent": "#3B82F6",
-        "--accent2": "#06B6D4",
-        "--accent-subtle": "rgba(59,130,246,0.08)",
-        "--accent-border": "rgba(59,130,246,0.2)",
-        fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
-        background: "var(--bg)",
-        color: "var(--fg)",
-        minHeight: "100vh",
-      }}
+      style={
+        {
+          "--bg": "#070B14",
+          "--surface": "#0D1526",
+          "--surface2": "#131E35",
+          "--border": "#1E2D4A",
+          "--fg": "#E8EDF5",
+          "--muted": "#5A7099",
+          "--muted2": "#8BA0C0",
+          "--accent": "#3B82F6",
+          "--accent2": "#06B6D4",
+          "--accent-subtle": "rgba(59,130,246,0.08)",
+          "--accent-border": "rgba(59,130,246,0.2)",
+          fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
+          background: "var(--bg)",
+          color: "var(--fg)",
+          minHeight: "100vh",
+        } as React.CSSProperties
+      }
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -739,10 +745,13 @@ export default function Portfolio() {
                   </div>
                 </div>
                 <div>
-                  <img
-                    src="/download.jpg "
+                  <Image
+                    src="/download.jpg"
                     alt="face"
+                    width={400}
+                    height={400}
                     className="rounded-2xl"
+                    style={{ width: "100%", height: "auto" }}
                   />
                 </div>
               </div>
@@ -829,12 +838,13 @@ export default function Portfolio() {
                     marginBottom: "14px",
                   }}
                 >
-                  Hey — I'm{" "}
+                  Hey — I&apos;m{" "}
                   <strong style={{ color: "var(--fg)", fontWeight: 600 }}>
                     Moksha Sandavirage
                   </strong>
-                  . I'm a software engineer who cares deeply about the craft of
-                  building things. Not just that they work, but that they work{" "}
+                  . I&apos;m a software engineer who cares deeply about the
+                  craft of building things. Not just that they work, but that
+                  they work{" "}
                   <em
                     style={{
                       color: "var(--fg)",
@@ -854,7 +864,7 @@ export default function Portfolio() {
                   }}
                 >
                   I spend most of my time at the intersection of systems design
-                  and product thinking. I've shipped features at scale for
+                  and product thinking. I&apos;ve shipped features at scale for
                   fintech and developer tools companies, and I believe the best
                   software is born from genuine curiosity about the problem.
                 </p>
@@ -929,7 +939,7 @@ export default function Portfolio() {
                   letterSpacing: "-0.03em",
                 }}
               >
-                Things I've built
+                Things I&apos;ve built
               </h2>
               <p
                 style={{
@@ -1088,7 +1098,7 @@ export default function Portfolio() {
                   letterSpacing: "-0.03em",
                 }}
               >
-                Let's talk
+                Let&apos;s talk
               </h2>
               <p
                 style={{
