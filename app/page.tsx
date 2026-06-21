@@ -928,7 +928,7 @@ export default function Portfolio() {
               </p>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+            {/* <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
               {PROJECTS.map(({ name, tag, desc, links, badge, color }) => (
                 <div key={name} className="card">
                   <div className="project-accent-bar" style={{ background: `linear-gradient(90deg, ${color}, transparent)` }} />
@@ -974,7 +974,7 @@ export default function Portfolio() {
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */}
           </section>
 
           {/* ── STACK ────────────────────────────────────────────── */}
