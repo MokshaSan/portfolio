@@ -435,6 +435,7 @@ export default function Portfolio() {
           height: "60px",
           display: "flex",
           alignItems: "center",
+          justifyContent: "space-between",
           padding: "0 28px",
           background: scrolled ? "rgba(7,11,20,0.92)" : "transparent",
           backdropFilter: scrolled ? "blur(12px)" : "none",
@@ -460,53 +461,53 @@ export default function Portfolio() {
           </span>
         </div>
 
-        {/* Desktop nav links */}
-        <nav
-          className="desktop-nav"
-          style={{ display: "flex", gap: "32px", alignItems: "center" }}
-        >
-          {NAV.map(({ id, label }) => (
-            <span
-              key={id}
-              className={`nav-link${active === id ? " active" : ""}`}
-              onClick={() => scrollTo(id)}
-            >
-              {label}
-            </span>
-          ))}
-        </nav>
-
-        {/* Right CTA */}
-        <div
-          className="desktop-nav"
-          style={{ display: "flex", marginLeft: "32px" }}
-        >
-          <button
-            className="btn-primary"
-            style={{ padding: "7px 16px", fontSize: "12px" }}
-            onClick={() => scrollTo("contact")}
+        {/* Right-side group: nav links + CTA + hamburger */}
+        <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+          {/* Desktop nav links */}
+          <nav
+            className="desktop-nav"
+            style={{ display: "flex", gap: "32px", alignItems: "center" }}
           >
-            Hire me →
+            {NAV.map(({ id, label }) => (
+              <span
+                key={id}
+                className={`nav-link${active === id ? " active" : ""}`}
+                onClick={() => scrollTo(id)}
+              >
+                {label}
+              </span>
+            ))}
+          </nav>
+
+          {/* Right CTA */}
+          <div className="desktop-nav" style={{ display: "flex" }}>
+            <button
+              className="btn-primary"
+              style={{ padding: "7px 16px", fontSize: "12px" }}
+              onClick={() => scrollTo("contact")}
+            >
+              Hire me →
+            </button>
+          </div>
+
+          {/* Hamburger */}
+          <button
+            className="hamburger"
+            onClick={() => setMobileMenuOpen((o) => !o)}
+            style={{
+              background: "transparent",
+              border: "1px solid var(--border)",
+              borderRadius: "8px",
+              padding: "7px 10px",
+              color: "var(--fg)",
+              fontSize: "16px",
+              cursor: "pointer",
+              fontFamily: "inherit",
+            }}
+          >
+            {mobileMenuOpen ? "✕" : "☰"}
           </button>
         </div>
-
-        {/* Hamburger */}
-        <button
-          className="hamburger"
-          onClick={() => setMobileMenuOpen((o) => !o)}
-          style={{
-            background: "transparent",
-            border: "1px solid var(--border)",
-            borderRadius: "8px",
-            padding: "7px 10px",
-            color: "var(--fg)",
-            fontSize: "16px",
-            cursor: "pointer",
-            fontFamily: "inherit",
-          }}
-        >
-          {mobileMenuOpen ? "✕" : "☰"}
-        </button>
       </header>
 
       {/* Mobile menu */}
@@ -704,6 +705,7 @@ export default function Portfolio() {
                     height={400}
                     className="rounded-2xl"
                     style={{ width: "100%", height: "auto" }}
+                    priority
                   />
                 </div>
               </div>
