@@ -11,40 +11,16 @@ const NAV = [
   { id: "contact", label: "Contact" },
 ];
 
-// const PROJECTS = [
-//   {
-//     name: "Orbit UI",
-//     tag: "Design System",
-//     desc: "A component library built on Radix primitives with a custom token system. Ships with dark mode, accessibility baked in, and zero runtime overhead.",
-//     links: ["GitHub", "Docs"],
-//     badge: "TypeScript",
-//     color: "#3B82F6",
-//   },
-//   {
-//     name: "Relay",
-//     tag: "Real-time App",
-//     desc: "Collaborative whiteboard with operational transforms for conflict-free concurrent editing. WebSocket + Redis pub/sub backend, sub-20ms latency.",
-//     links: ["GitHub", "Live"],
-//     badge: "Go · React",
-//     color: "#06B6D4",
-//   },
-//   {
-//     name: "Cartograph",
-//     tag: "Data Viz",
-//     desc: "Interactive geospatial analytics dashboard. Processes 10M+ data points client-side using WebAssembly and DeckGL for 60fps renders.",
-//     links: ["GitHub", "Demo"],
-//     badge: "Rust · WASM",
-//     color: "#8B5CF6",
-//   },
-//   {
-//     name: "Seedling",
-//     tag: "CLI Tool",
-//     desc: "Project scaffolding CLI with opinionated defaults and composable templates. Cuts new project setup from 2 hours to under 3 minutes.",
-//     links: ["GitHub", "npm"],
-//     badge: "Node.js",
-//     color: "#10B981",
-//   },
-// ];
+const PROJECTS = [
+  {
+    name: "DevDash",
+    tag: "Hackathon Website",
+    desc: "I made the DevDash website for annual campus hackathion.",
+    links: ["devdash-ucl.vercel.app"],
+    badge: "Next.js · Tailwind CSS",
+    color: "#3B82F6",
+  },
+ ];
 
 const STACK = [
   { cat: "Languages", items: ["TypeScript", "JavaScript", "C++", "Python"] },
@@ -939,7 +915,7 @@ export default function Portfolio() {
                   letterSpacing: "-0.03em",
                 }}
               >
-                Things I&apos;ve built
+                Things I have built
               </h2>
               <p
                 style={{
@@ -952,7 +928,7 @@ export default function Portfolio() {
               </p>
             </div>
 
-            {/* <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
               {PROJECTS.map(({ name, tag, desc, links, badge, color }) => (
                 <div key={name} className="card">
                   <div className="project-accent-bar" style={{ background: `linear-gradient(90deg, ${color}, transparent)` }} />
@@ -998,7 +974,7 @@ export default function Portfolio() {
                   </div>
                 </div>
               ))}
-            </div> */}
+            </div>
           </section>
 
           {/* ── STACK ────────────────────────────────────────────── */}
