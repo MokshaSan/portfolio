@@ -445,32 +445,8 @@ export default function Portfolio() {
             "background 0.25s, border-color 0.25s, backdrop-filter 0.25s",
         }}
       >
-        {/* Logo */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-            marginRight: "auto",
-          }}
-        >
-          <div
-            style={{
-              width: "30px",
-              height: "30px",
-              borderRadius: "8px",
-              background: "linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "13px",
-              fontWeight: 700,
-              color: "#fff",
-              fontFamily: "'JetBrains Mono', monospace",
-            }}
-          >
-            M
-          </div>
+        {/* Name */}
+        <div>
           <span
             style={{
               fontSize: "14px",
@@ -480,7 +456,7 @@ export default function Portfolio() {
               color: "var(--fg)",
             }}
           >
-            moksha<span style={{ color: "var(--accent)" }}>.</span>dev
+            Moksha Sandavirage
           </span>
         </div>
 
