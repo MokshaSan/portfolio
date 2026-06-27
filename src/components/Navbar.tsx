@@ -71,13 +71,14 @@ export default function Navbar({
           </nav>
 
           <div className="desktop-nav" style={{ display: "flex" }}>
-            <button
+            <a
+              href="/cv.pdf"
+              download
               className="btn-primary"
-              style={{ padding: "7px 16px", fontSize: "12px" }}
-              onClick={() => scrollTo("contact")}
+              style={{ padding: "7px 16px", fontSize: "12px", textDecoration: "none" }}
             >
-              Hire me →
-            </button>
+              Download CV
+            </a>
           </div>
 
           <button
