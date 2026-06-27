@@ -108,12 +108,10 @@ export default function Portfolio() {
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: "12px",
             color: "var(--muted)",
+            margin: " 0 auto",
           }}
         >
           © Moksha Sandavirage
-        </span>
-        <span style={{ fontSize: "12px", color: "var(--muted)" }}>
-          Designed & developed with ♥
         </span>
       </footer>
     </div>
