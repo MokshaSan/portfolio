@@ -101,7 +101,7 @@ export default function HomeSection({ scrollTo }: HomeSectionProps) {
         </div>
 
         <p
-          className="hero-animate-3"
+          className="hero-animate-3 home-desc"
           style={{
             fontSize: "15px",
             lineHeight: 1.75,
