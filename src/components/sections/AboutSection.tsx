@@ -51,9 +51,8 @@ export default function AboutSection() {
             <strong style={{ color: "var(--fg)", fontWeight: 600 }}>
               Moksha Sandavirage
             </strong>
-            . I&apos;m a software engineer who cares deeply about the
-            craft of building things. Not just that they work, but that
-            they work{" "}
+            . I&apos;m a software engineer who cares deeply about the craft of
+            building things. Not just that they work, but that they work{" "}
             <em
               style={{
                 color: "var(--fg)",
@@ -65,35 +64,17 @@ export default function AboutSection() {
             </em>{" "}
             — fast, accessible, maintainable, and clear.
           </p>
-          <p
-            style={{
-              fontSize: "14px",
-              lineHeight: 1.85,
-              color: "var(--muted2)",
-            }}
-          >
-            I spend most of my time at the intersection of systems design
-            and product thinking. I&apos;ve shipped features at scale for
-            fintech and developer tools companies, and I believe the best
-            software is born from genuine curiosity about the problem.
-          </p>
         </div>
       </div>
 
       <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
         {[
           { label: "Location", value: "Colombo, Sri Lanka", icon: "📍" },
-          { label: "Experience", value: "5+ years", icon: "⚡" },
+          { label: "Experience", value: "2+ years", icon: "⚡" },
           { label: "Focus", value: "Full-stack & Systems", icon: "🔧" },
         ].map(({ label, value, icon }) => (
-          <div
-            key={label}
-            className="stat-box"
-            style={{ minWidth: "140px" }}
-          >
-            <div style={{ fontSize: "18px", marginBottom: "6px" }}>
-              {icon}
-            </div>
+          <div key={label} className="stat-box" style={{ minWidth: "140px" }}>
+            <div style={{ fontSize: "18px", marginBottom: "6px" }}>{icon}</div>
             <div
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
