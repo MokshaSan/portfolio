@@ -25,20 +25,17 @@ export default function HomeSection({ scrollTo }: HomeSectionProps) {
       }}
     >
       <DotGrid />
-      <div
-        style={{ position: "relative", zIndex: 1, paddingTop: "20px" }}
-      >
-          <div
-            className="home-grid"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "40px",
-              alignItems: "center",
-            }}
-          >
+      <div style={{ position: "relative", zIndex: 1, paddingTop: "20px" }}>
+        <div
+          className="home-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "40px",
+            alignItems: "center",
+          }}
+        >
           <div>
-
             <h1
               className="hero-animate-2"
               style={{
@@ -70,10 +67,11 @@ export default function HomeSection({ scrollTo }: HomeSectionProps) {
             >
               <span style={{ color: "#10B981" }}>$</span>
               <span style={{ color: "var(--muted2)" }}>whoami</span>
-              <span style={{ color: "var(--border)", margin: "0 2px" }}>
-                —
-              </span>
-              <span className="home-terminal" style={{ color: "var(--fg)", minWidth: "210px" }}>
+              <span style={{ color: "var(--border)", margin: "0 2px" }}>—</span>
+              <span
+                className="home-terminal"
+                style={{ color: "var(--fg)", minWidth: "210px" }}
+              >
                 {role}
                 <span
                   style={{
@@ -113,23 +111,17 @@ export default function HomeSection({ scrollTo }: HomeSectionProps) {
           }}
         >
           I craft performant, accessible interfaces and thoughtful backend
-          systems. Five years shipping products people actually use.
+          systems.
         </p>
 
         <div
           className="hero-animate-4"
           style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}
         >
-          <button
-            className="btn-primary"
-            onClick={() => scrollTo("projects")}
-          >
+          <button className="btn-primary" onClick={() => scrollTo("projects")}>
             View projects →
           </button>
-          <button
-            className="btn-ghost"
-            onClick={() => scrollTo("contact")}
-          >
+          <button className="btn-ghost" onClick={() => scrollTo("contact")}>
             Get in touch
           </button>
         </div>
