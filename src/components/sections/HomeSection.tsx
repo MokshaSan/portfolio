@@ -21,55 +21,24 @@ export default function HomeSection({ scrollTo }: HomeSectionProps) {
         alignItems: "center",
         position: "relative",
         scrollMarginTop: "60px",
+        paddingTop: "60px",
       }}
     >
       <DotGrid />
       <div
         style={{ position: "relative", zIndex: 1, paddingTop: "20px" }}
       >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "40px",
-            alignItems: "center",
-          }}
-        >
+          <div
+            className="home-grid"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "40px",
+              alignItems: "center",
+            }}
+          >
           <div>
-            <div
-              className="hero-animate"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                background: "rgba(59,130,246,0.08)",
-                border: "1px solid rgba(59,130,246,0.2)",
-                borderRadius: "20px",
-                padding: "5px 14px 5px 8px",
-                marginBottom: "28px",
-              }}
-            >
-              <span
-                style={{
-                  width: "7px",
-                  height: "7px",
-                  borderRadius: "50%",
-                  background: "#10B981",
-                  display: "inline-block",
-                  animation: "pulse-dot 2s ease-in-out infinite",
-                }}
-              />
-              <span
-                style={{
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  color: "var(--accent)",
-                  fontFamily: "'JetBrains Mono', monospace",
-                }}
-              >
-                Available for work
-              </span>
-            </div>
+
             <h1
               className="hero-animate-2"
               style={{
@@ -104,7 +73,7 @@ export default function HomeSection({ scrollTo }: HomeSectionProps) {
               <span style={{ color: "var(--border)", margin: "0 2px" }}>
                 —
               </span>
-              <span style={{ color: "var(--fg)", minWidth: "210px" }}>
+              <span className="home-terminal" style={{ color: "var(--fg)", minWidth: "210px" }}>
                 {role}
                 <span
                   style={{

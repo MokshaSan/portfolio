@@ -194,8 +194,13 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 768px) {
   .desktop-nav { display: none !important; }
   .hamburger { display: flex !important; }
-  .social-sidebar { display: none !important; }
-  .main-wrap { padding-left: 0 !important; }
+  .social-sidebar { width: 40px !important; }
+  .main-wrap { padding-left: 40px !important; }
+  .home-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  main { padding: 0 24px !important; }
+  .main-footer { padding-left: 40px !important; }
+  .home-terminal { min-width: 0 !important; }
+  .nav-cv-btn { font-size: 11px !important; padding: 6px 12px !important; }
 }
 @media (min-width: 769px) {
   .hamburger { display: none !important; }

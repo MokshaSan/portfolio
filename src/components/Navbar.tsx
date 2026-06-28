@@ -31,7 +31,7 @@ export default function Navbar({
           alignItems: "center",
           justifyContent: "space-between",
           padding: "0 28px",
-          background: scrolled ? "rgba(7,11,20,0.92)" : "transparent",
+          background: "rgba(7,11,20,0.92)",
           backdropFilter: scrolled ? "blur(12px)" : "none",
           borderBottom: scrolled
             ? "1px solid var(--border)"
@@ -70,16 +70,14 @@ export default function Navbar({
             ))}
           </nav>
 
-          <div className="desktop-nav" style={{ display: "flex" }}>
-            <a
-              href="/cv.pdf"
-              download
-              className="btn-primary"
-              style={{ padding: "7px 16px", fontSize: "12px", textDecoration: "none" }}
-            >
-              Download CV
-            </a>
-          </div>
+          <a
+            href="/cv.pdf"
+            download
+            className="btn-primary nav-cv-btn"
+            style={{ padding: "7px 16px", fontSize: "12px", textDecoration: "none" }}
+          >
+            Download CV
+          </a>
 
           <button
             className="hamburger"

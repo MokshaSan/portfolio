@@ -92,13 +92,14 @@ export default function Portfolio() {
       </div>
 
       <footer
+        className="main-footer"
         style={{
           borderTop: "1px solid var(--border)",
           padding: "20px 40px",
           paddingLeft: "96px",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "center",
           gap: "16px",
           flexWrap: "wrap",
         }}
