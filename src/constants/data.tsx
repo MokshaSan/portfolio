@@ -9,14 +9,14 @@ export const NAV = [
 ];
 
 export const PROJECTS = [
-  {
-    name: "DevDash",
-    tag: "Hackathon Website",
-    desc: "I made the DevDash website for annual campus hackathion.",
-    links: ["devdash-ucl.vercel.app"],
-    badge: "Next.js · Tailwind CSS",
-    color: "#3B82F6",
-  },
+  // {
+  //   name: "DevDash",
+  //   tag: "Hackathon Website",
+  //   desc: "I made the DevDash website for annual campus hackathion.",
+  //   links: ["devdash-ucl.vercel.app"],
+  //   badge: "Next.js · Tailwind CSS",
+  //   color: "#3B82F6",
+  // },
 ];
 
 export const STACK = [
