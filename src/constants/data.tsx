@@ -3,28 +3,8 @@ import React from "react";
 export const NAV = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
-  { id: "projects", label: "Projects" },
   { id: "stack", label: "Stack" },
   { id: "contact", label: "Contact" },
-];
-
-export const PROJECTS = [
-  {
-    name: "Project One",
-    tag: "Full-Stack App",
-    desc: "A full-stack web application built with modern tools. Replace this description with your own.",
-    links: ["github.com/username/project-one", "project-one.vercel.app"],
-    badge: "Next.js · TypeScript",
-    color: "#3B82F6",
-  },
-  {
-    name: "Project Two",
-    tag: "Open Source",
-    desc: "An open-source library or tool. Replace this description with your own.",
-    links: ["github.com/username/project-two"],
-    badge: "React · npm",
-    color: "#8B5CF6",
-  },
 ];
 
 export const STACK = [

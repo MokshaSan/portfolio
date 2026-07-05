@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 import SocialSidebar from "@/components/SocialSidebar";
 import HomeSection from "@/components/sections/HomeSection";
 import AboutSection from "@/components/sections/AboutSection";
-import ProjectsSection from "@/components/sections/ProjectsSection";
 import StackSection from "@/components/sections/StackSection";
 import ContactSection from "@/components/sections/ContactSection";
 
@@ -85,7 +84,6 @@ export default function Portfolio() {
         >
           <HomeSection scrollTo={scrollTo} />
           <AboutSection />
-          <ProjectsSection />
           <StackSection />
           <ContactSection />
         </main>
