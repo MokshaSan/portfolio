@@ -1,8 +1,31 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 
-export function useTypingEffect(words: readonly string[], speed = 75, pause = 2000) {
+function subscribeReducedMotion(callback: () => void) {
+  const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+  mq.addEventListener("change", callback);
+  return () => mq.removeEventListener("change", callback);
+}
+
+function getReducedMotionSnapshot() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function getReducedMotionServerSnapshot() {
+  return false;
+}
+
+export function useTypingEffect(
+  words: readonly string[],
+  speed = 75,
+  pause = 2000,
+) {
+  const reduced = useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot,
+  );
   const [wordIdx, setWordIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const [deleting, setDeleting] = useState(false);
@@ -10,7 +33,7 @@ export function useTypingEffect(words: readonly string[], speed = 75, pause = 20
   const display = words[wordIdx]?.slice(0, charIdx) ?? "";
 
   useEffect(() => {
-    if (words.length === 0) return;
+    if (reduced || words.length === 0) return;
     const word = words[wordIdx];
     let timeout: ReturnType<typeof setTimeout> | undefined;
     if (!deleting && charIdx < word.length) {
@@ -28,7 +51,9 @@ export function useTypingEffect(words: readonly string[], speed = 75, pause = 20
     return () => {
       if (timeout !== undefined) clearTimeout(timeout);
     };
-  }, [charIdx, deleting, wordIdx, words, speed, pause]);
+  }, [charIdx, deleting, reduced, wordIdx, words, speed, pause]);
+
+  if (reduced) return words[0] ?? "";
 
   return display;
 }

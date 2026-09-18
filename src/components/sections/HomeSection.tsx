@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import DotGrid from "@/components/DotGrid";
+import Reveal from "@/components/ui/Reveal";
 import { useTypingEffect } from "@/components/ui/TypingEffect";
-import { ROLES } from "@/constants/data";
+import { META, ROLES } from "@/constants/data";
 
 interface HomeSectionProps {
   scrollTo: (id: string) => void;
@@ -13,118 +13,90 @@ export default function HomeSection({ scrollTo }: HomeSectionProps) {
   const role = useTypingEffect(ROLES);
 
   return (
-    <section
-      id="home"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        position: "relative",
-        scrollMarginTop: "60px",
-        paddingTop: "60px",
-      }}
-    >
-      <DotGrid />
-      <div style={{ position: "relative", zIndex: 1, paddingTop: "20px" }}>
-        <div
-          className="home-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "40px",
-            alignItems: "center",
-          }}
-        >
+    <section id="home" className="hero">
+      <div className="pf-wrap">
+        <div className="hero-grid">
           <div>
-            <h1
-              className="hero-animate-2"
-              style={{
-                fontSize: "clamp(38px, 7vw, 62px)",
-                fontWeight: 700,
-                letterSpacing: "-0.04em",
-                lineHeight: 1.04,
-                marginBottom: "22px",
-              }}
-            >
-              Building software
-              <br />
-              <span style={{ color: "var(--muted)" }}>that matters.</span>
-            </h1>
-            <div
-              className="hero-animate-3"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "10px",
-                background: "var(--surface)",
-                border: "1px solid var(--border)",
-                borderRadius: "10px",
-                padding: "11px 18px",
-                marginBottom: "28px",
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: "13px",
-              }}
-            >
-              <span style={{ color: "#10B981" }}>$</span>
-              <span style={{ color: "var(--muted2)" }}>whoami</span>
-              <span style={{ color: "var(--border)", margin: "0 2px" }}>—</span>
-              <span
-                className="home-terminal"
-                style={{ color: "var(--fg)", minWidth: "210px" }}
-              >
-                {role}
-                <span
-                  style={{
-                    display: "inline-block",
-                    width: "2px",
-                    height: "13px",
-                    background: "var(--accent2)",
-                    verticalAlign: "middle",
-                    animation: "blink 1s step-end infinite",
-                    marginLeft: "2px",
-                  }}
-                />
-              </span>
-            </div>
+            <Reveal>
+              <p className="hero-kicker">
+                {/*<span className="kicker-hi">{META.role.toUpperCase()}</span>*/}
+                <span aria-hidden="true">I'm</span>
+              </p>
+            </Reveal>
+
+            <Reveal delay={70}>
+              <h1 className="hero-name">
+                <span>{META.shortName}</span>
+                <span className="hero-name-2">Sandavirage</span>
+              </h1>
+            </Reveal>
+
+            <Reveal delay={130}>
+              <p className="hero-focus">
+                <span className="hf-label">Focus</span>
+                <span>{role}</span>
+                <span className="caret" aria-hidden="true" />
+              </p>
+            </Reveal>
+
+            <Reveal delay={190}>
+              <p className="hero-desc">{META.description}</p>
+            </Reveal>
+
+            <Reveal delay={250}>
+              <div className="hero-ctas">
+                <button className="btn btn-fill" onClick={() => scrollTo("contact")}>
+                  My resume
+                  <span className="btn-arrow" aria-hidden="true">
+                    →
+                  </span>
+                </button>
+                <a
+                  className="btn"
+                  // href="/moksha-resume.docx"
+                  download
+                >
+                  download
+                  <span className="btn-arrow" aria-hidden="true">
+                    ↓
+                  </span>
+                </a>
+              </div>
+            </Reveal>
           </div>
-          <div>
-            <Image
-              src="/download.jpg"
-              alt="face"
-              width={400}
-              height={400}
-              className="rounded-2xl"
-              style={{ width: "100%", height: "auto" }}
-              priority
-            />
-          </div>
+
+          <Reveal delay={160}>
+            <figure className="portrait">
+              <Image
+                src="/download.jpg"
+                alt="Portrait of Moksha Sandavirage"
+                width={400}
+                height={400}
+                sizes="(max-width: 900px) 90vw, 420px"
+                priority
+              />
+              <figcaption className="portrait-cap">
+                <span className="cap-hi">It&apos;s me</span>
+                <span>2026</span>
+              </figcaption>
+            </figure>
+          </Reveal>
         </div>
 
-        <p
-          className="hero-animate-3 home-desc"
-          style={{
-            fontSize: "15px",
-            lineHeight: 1.75,
-            color: "var(--muted2)",
-            maxWidth: "500px",
-            marginBottom: "36px",
-          }}
-        >
-          I craft performant, accessible interfaces and thoughtful backend
-          systems.
-        </p>
-
-        <div
-          className="hero-animate-4"
-          style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}
-        >
-          <button className="btn-primary" onClick={() => scrollTo("projects")}>
-            View projects →
-          </button>
-          <button className="btn-ghost" onClick={() => scrollTo("contact")}>
-            Get in touch
-          </button>
-        </div>
+        <Reveal delay={300} className="hero-meta">
+          <div className="hm-item">
+            <span className="hm-label">Location</span>
+            <span className="hm-value">{META.location}</span>
+          </div>
+          <div className="hm-item">
+            <span className="hm-label">Status</span>
+            <span className="hm-value">Open to opportunities</span>
+          </div>
+          <div className="hm-item">
+            <span className="hm-label">Role</span>
+            <span className="hm-value">Full Stack Dev</span>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

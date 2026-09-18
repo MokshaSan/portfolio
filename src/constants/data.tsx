@@ -1,20 +1,58 @@
 import React from "react";
 
+export const META = {
+  name: "Moksha Sandavirage",
+  shortName: "Moksha",
+  // role: "Software Engineer",
+  location: "Colombo, Sri Lanka",
+  email: "sandavirage@gmail.com",
+  tagline: "Building software that matters.",
+  description:
+    "I craft performant, accessible interfaces and thoughtful systems.",
+};
+
 export const NAV = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
   { id: "stack", label: "Stack" },
   { id: "contact", label: "Contact" },
+];
+
+export const PROJECTS = [
+  {
+    name: "Nestura",
+    tag: "The Integrated Smart Living Platform",
+    desc: "Designaton 2026 24hr hackathon project",
+    links: ["designops-nestura.vercel.app"],
+    badge: "react, supabase ",
+  },
+
+  {
+    name: "DevDash",
+    tag: "Hackathon Website",
+    desc: "DevDash26 website for the annual campus hackathon.",
+    links: ["devdash-ucl.vercel.app"],
+    badge: "Next.js · Tailwind CSS",
+  },
 ];
 
 export const STACK = [
   { cat: "Languages", items: ["TypeScript", "JavaScript", "C++", "Python"] },
   { cat: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
-  { cat: "Backend", items: ["Node.js", "Postgres", "Redis", "Express"] },
+  { cat: "Backend", items: ["Node.js", "Postgres","Supabase", "Express"] },
   { cat: "Infra", items: ["Vercel", "Docker", "Kubernetes", "AWS"] },
 ];
 
-export const ROLES = ["Software Engineer", "UI/UX Enthusiast"] as const;
+export const ROLES = ["Full Stack Applications", "UI/UX Enthusiast"] as const;
+
+export const PRINCIPLES = ["Fast", "Accessible", "Maintainable", "Clear"];
+
+export const INFO = [
+  { label: "Location", value: "Colombo, Sri Lanka" },
+  { label: "Experience", value: "2+ years" },
+  { label: "Focus", value: "Full-stack Systems" },
+];
 
 interface Social {
   name: string;
@@ -52,7 +90,7 @@ export const SOCIALS: Social[] = [
   },
   {
     name: "Email",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=sandavirage@gmail.com",
+    href: "mailto:sandavirage@gmail.com",
     icon: (
       <svg
         viewBox="0 0 24 24"

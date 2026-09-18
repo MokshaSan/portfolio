@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { NAV } from "@/constants/data";
+import { useEffect, useState } from "react";
+import { META, NAV } from "@/constants/data";
 import "@/styles/portfolio.css";
 import Navbar from "@/components/Navbar";
-import SocialSidebar from "@/components/SocialSidebar";
 import HomeSection from "@/components/sections/HomeSection";
 import AboutSection from "@/components/sections/AboutSection";
+import ProjectsSection from "@/components/sections/ProjectsSection";
 import StackSection from "@/components/sections/StackSection";
 import ContactSection from "@/components/sections/ContactSection";
 
@@ -22,7 +22,7 @@ export default function Portfolio() {
           if (e.isIntersecting) setActive(e.target.id);
         });
       },
-      { rootMargin: "-20% 0px -70% 0px" },
+      { rootMargin: "-25% 0px -60% 0px" },
     );
     NAV.forEach(({ id }) => {
       const el = document.getElementById(id);
@@ -32,8 +32,8 @@ export default function Portfolio() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -42,28 +42,14 @@ export default function Portfolio() {
     setMobileMenuOpen(false);
   };
 
+  const year = new Date().getFullYear();
+
   return (
-    <div
-      style={
-        {
-          "--bg": "#070B14",
-          "--surface": "#0D1526",
-          "--surface2": "#131E35",
-          "--border": "#1E2D4A",
-          "--fg": "#E8EDF5",
-          "--muted": "#5A7099",
-          "--muted2": "#8BA0C0",
-          "--accent": "#3B82F6",
-          "--accent2": "#06B6D4",
-          "--accent-subtle": "rgba(59,130,246,0.08)",
-          "--accent-border": "rgba(59,130,246,0.2)",
-          fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
-          background: "var(--bg)",
-          color: "var(--fg)",
-          minHeight: "100vh",
-        } as React.CSSProperties
-      }
-    >
+    <div className="portfolio">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+
       <Navbar
         active={active}
         scrolled={scrolled}
@@ -72,46 +58,41 @@ export default function Portfolio() {
         scrollTo={scrollTo}
       />
 
-      <SocialSidebar />
+      <main id="main">
+        <HomeSection scrollTo={scrollTo} />
+        <AboutSection />
+        <ProjectsSection />
+        <StackSection />
+        <ContactSection />
+      </main>
 
-      <div className="main-wrap" style={{ paddingLeft: "56px" }}>
-        <main
-          style={{
-            maxWidth: "760px",
-            margin: "0 auto",
-            padding: "0 40px",
-          }}
-        >
-          <HomeSection scrollTo={scrollTo} />
-          <AboutSection />
-          <StackSection />
-          <ContactSection />
-        </main>
-      </div>
+      <footer className="site-footer">
+        <div className="pf-wrap">
+          <div className="footer-row">
+            <div className="footer-brand">
+              <span className="footer-name">{META.name.toUpperCase()}</span>
+              {/*<span className="footer-sub">{ROLES[0]}</span>*/}
+            </div>
 
-      <footer
-        className="main-footer"
-        style={{
-          borderTop: "1px solid var(--border)",
-          padding: "20px 40px",
-          paddingLeft: "96px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "16px",
-          flexWrap: "wrap",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: "12px",
-            color: "var(--muted)",
-            margin: " 0 auto",
-          }}
-        >
-          © Moksha Sandavirage
-        </span>
+            {/*<div className="footer-links">
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {s.name}
+                </a>
+              ))}
+            </div>*/}
+
+            <div className="footer-meta">
+              {/*<span>{META.location}</span>*/}
+              <span>© {year} — All rights reserved</span>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );

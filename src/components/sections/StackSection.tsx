@@ -1,75 +1,34 @@
+import Section from "@/components/Section";
+import Reveal from "@/components/ui/Reveal";
 import { STACK } from "@/constants/data";
 
 export default function StackSection() {
   return (
-    <section
-      id="stack"
-      style={{ padding: "80px 0", scrollMarginTop: "60px" }}
-    >
-      <div style={{ marginBottom: "40px" }}>
-        <p
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: "11px",
-            fontWeight: 600,
-            letterSpacing: "0.12em",
-            color: "var(--accent)",
-            textTransform: "uppercase",
-            marginBottom: "10px",
-          }}
-        >
-          03 — Stack
-        </p>
-        <h2
-          style={{
-            fontSize: "32px",
-            fontWeight: 700,
-            letterSpacing: "-0.03em",
-          }}
-        >
-          Tools I reach for
-        </h2>
-        <p
-          style={{
-            color: "var(--muted2)",
-            fontSize: "14px",
-            marginTop: "6px",
-          }}
-        >
-          Technologies I use daily and trust in production.
-        </p>
-      </div>
-
-      <div
-        style={{ display: "flex", flexDirection: "column", gap: "28px" }}
-      >
-        {STACK.map(({ cat, items }) => (
-          <div key={cat}>
-            <p
-              style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: "11px",
-                fontWeight: 600,
-                letterSpacing: "0.1em",
-                color: "var(--muted)",
-                textTransform: "uppercase",
-                marginBottom: "12px",
-              }}
-            >
-              {cat}
-            </p>
-            <div
-              style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}
-            >
-              {items.map((item) => (
-                <div key={item} className="stack-pill">
-                  {item}
-                </div>
-              ))}
+    <Section id="stack" no="02" kicker="Stack" title="Stack" sub="Tools I reach for.">
+      <div className="stack-grid">
+        {STACK.map(({ cat, items }, ci) => (
+          <Reveal key={cat} delay={(ci % 2) * 80}>
+            <div className="stack-cat">
+              <p className="cat-label">
+                <span className="cat-idx" aria-hidden="true">
+                  {String(ci + 1).padStart(2, "0")}
+                </span>
+                {cat}
+              </p>
+              <ul className="stack-items">
+                {items.map((item, ii) => (
+                  <li key={item} className="stack-item">
+                    <span className="si-idx" aria-hidden="true">
+                      {String(ii + 1).padStart(2, "0")}
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          </Reveal>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
