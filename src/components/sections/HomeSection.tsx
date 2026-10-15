@@ -46,20 +46,14 @@ export default function HomeSection({ scrollTo }: HomeSectionProps) {
             <Reveal delay={250}>
               <div className="hero-ctas">
                 <button className="btn btn-fill" onClick={() => scrollTo("contact")}>
-                  My resume
-                  <span className="btn-arrow" aria-hidden="true">
-                    →
-                  </span>
+                  Contact Me
                 </button>
                 <a
                   className="btn"
-                  // href="/moksha-resume.docx"
+                   href="/moksha-resume.docx"
                   download
                 >
-                  download
-                  <span className="btn-arrow" aria-hidden="true">
-                    ↓
-                  </span>
+                  download CV
                 </a>
               </div>
             </Reveal>
