@@ -32,7 +32,7 @@ export const PROJECTS = [
     name: "DevDash",
     tag: "Hackathon Website",
     desc: "DevDash26 website for the annual campus hackathon.",
-    links: "devdash2026.tech",
+    links: ["devdash2026.tech"],
     badge: "Next.js · Tailwind CSS",
   },
 ];
