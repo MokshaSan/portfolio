@@ -24,7 +24,7 @@ export const PROJECTS = [
     name: "Nestura",
     tag: "The Integrated Smart Living Platform",
     desc: "Designaton 2026 24hr hackathon project",
-    links: ["designops-nestura.vercel.app"],
+    links: ["github.com/MokshaSan/DesignOPs"],
     badge: "react, supabase ",
   },
 
@@ -32,7 +32,7 @@ export const PROJECTS = [
     name: "DevDash",
     tag: "Hackathon Website",
     desc: "DevDash26 website for the annual campus hackathon.",
-    links: ["https://www.devdash2026.tech/"],
+    links: "www.devdash2026.tech/",
     badge: "Next.js · Tailwind CSS",
   },
 ];
